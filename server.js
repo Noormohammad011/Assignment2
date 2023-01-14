@@ -57,7 +57,14 @@ app.use(hpp())
 //set static folder
 app.use(express.static(path.join(path.dirname(''), 'public')))
 
-
+app.get('/api-docs', (req, res) => { 
+  res.sendFile(path.join(path.dirname(''), 'public', 'index.html'))
+})
+app.get('/postman-link', (req, res) => {
+  res.send(
+    "<h1>Postman</h1><a href='https://documenter.getpostman.com/view/12490462/2s8ZDSckco#86859d49-ca10-4a81-9280-5eefa6e6a71d'>Clik Here</a>"
+  )
+ })
 //route mount
 app.use('/api/v1/tours', tourRoutes)
 
